@@ -9,7 +9,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(4, 4, 58);
+    background:linear-gradient(to left,blue,green);
 }
 body.correct{
     background-color: rgb(4, 58, 4);
