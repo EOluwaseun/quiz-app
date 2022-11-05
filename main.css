@@ -9,7 +9,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background:linear-gradient(to left,blue,green);
+    /* background:linear-gradient(to left,blue,green); */
+    background-color: blue;
 }
 body.correct{
     background-color: rgb(4, 58, 4);
@@ -39,7 +40,7 @@ body.wrong{
     padding: 10px 20px;
 }
 .btn.correct{
-    background-color: rgb(10, 148, 28);
+    background-color: rgba(74, 148, 10, 0.817);
     color:white;
 }
 .btn.wrong{
