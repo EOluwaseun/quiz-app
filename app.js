@@ -9,7 +9,10 @@ let shuffleQuestions,currenntQuestionIndex ;
 
 // This is when we click the start button
 startButton.addEventListener('click', startGame)
-
+nextButton.addEventListener('click', ()=>{
+    currenntQuestionIndex++;
+    ShowQuestion();
+})
 function startGame() {
     //when ever we click on the start button ,we want it ot be invisible. so we need to hide it
     startButton.classList.add('hide');
@@ -73,8 +76,42 @@ function resetState(){
 //this button to select the answer
 function selectAnswer(e){
     // the (e) simply means ,it takes our event in as a parameter
-    //meaning the event that happens when wil click on our button
+    //meaning the event that happens when wil click on our button\
+    const selectedButton = e.target;
+    //select anyone that has a dataset of correct
+    const correct = selectedButton.dataset.correct
+    // set the body and check if it is true or faulse
+    setStatusClass(document.body, correct)
+    Array.from(answerButtonElement.children).forEach(button =>{
+        setStatusClass(button, button.dataset.correct)
+    })
+    // when ever answer is been selected ,start nextbtn pops up
+    console.log(correct)
+
+    if(shuffleQuestions.length > currenntQuestionIndex + 1){
+        nextButton.classList.remove('hide')
+    }else{
+        startButton.innerText ='Restart'
+        startButton.classList.remove('hide')
     
+    }
+    // nextButton.classList.remove('hide')
+
+}
+
+
+function setStatusClass(element, correct){
+    clearStatusClass(element)
+    if(correct){
+        element.classList.add('correct')
+    }else{
+        element.classList.add('wrong')
+    }
+}
+function clearStatusClass(element){
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
+
 
 }
 //shuffle all my question
@@ -86,8 +123,16 @@ const questions =[
         question:'what is 5 + 5 ?',
         answers:[
             //array as our answer,with object
-            {text:'4', correct:true},
-            {text:'10', correct:false}
+            {text:'4', correct:false},
+            {text:'10', correct:true}
+        ]
+    },
+    {
+        question:'what is 5 + 5 ?',
+        answers:[
+            //array as our answer,with object
+            {text:'4', correct:false},
+            {text:'10', correct:true}
         ]
     }
 ]
