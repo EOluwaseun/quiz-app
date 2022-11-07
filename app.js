@@ -11,7 +11,7 @@ let shuffleQuestions,currenntQuestionIndex ;
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', ()=>{
     currenntQuestionIndex++;
-    ShowQuestion();
+    setNextQuestion();
 })
 function startGame() {
     //when ever we click on the start button ,we want it ot be invisible. so we need to hide it
@@ -128,13 +128,31 @@ const questions =[
         ]
     },
     {
-        question:'what is 5 + 5 ?',
+        question:'what is 5 + 3 ?',
         answers:[
             //array as our answer,with object
-            {text:'4', correct:false},
-            {text:'10', correct:true}
+            {text:'8', correct:true},
+            {text:'10', correct:false},
+            {text:'88', correct:false},
+            {text:'53', correct:false}
+
+
+
         ]
-    }
+    },
+    {
+        question:'Is web developement Fun ?',
+        answers:[
+            //array as our answer,with object
+            {text:'NO', correct:false},
+            {text:'Maybe', correct:false},
+            {text:'YES', correct:true},
+            {text:"Don't know", correct:false}
+
+
+
+        ]
+    },
 ]
 console.log(questions)
 
